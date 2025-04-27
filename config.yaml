@@ -1,0 +1,33 @@
+# config.yaml
+socks_proxy:
+  host: '10.10.10.224' # IP-адрес вашего SOCKS5 прокси
+  port: 52000        # Порт вашего SOCKS5 прокси
+  type: 5             # Версия SOCKS (5)
+  # userId: 'your_username' # Раскомментируйте и укажите, если нужна аутентификация
+  # password: 'your_password' # Раскомментируйте и укажите, если нужна аутентификация
+
+routing:
+  'openrouter.ai':
+    host: 'openrouter.ai' # Используем имя хоста вместо IP
+    port: 443
+  'api.groq.com': # Добавлено для Groq API
+    host: 'api.groq.com'
+    port: 443
+  'api.openai.com': # Добавлено для OpenAI API
+    host: 'api.openai.com'
+    port: 443
+  'generativelanguage.googleapis.com': # Добавлено для Gemini API (Google AI)
+    host: 'generativelanguage.googleapis.com'
+    port: 443
+
+proxy_port: 443 # Порт, на котором будет слушать SNI-прокси
+# Настройки логирования
+logging:
+  log_dir: 'logs'          # Директория для лог-файлов
+  filename: 'app-%DATE%.log' # Шаблон имени файла (%DATE% будет заменен)
+  date_pattern: 'YYYY-MM-DD' # Формат даты для ротации и имени файла
+  max_size: '20m'          # Максимальный размер файла перед ротацией (20MB)
+  max_files: '14d'         # Хранить логи за последние 14 дней
+  level: 'debug'           # Уровень логирования (debug, info, warn, error)
+  zipped_archive: true     # Сжимать старые лог-файлы в gzip
+  log_to_console: true     # Дублировать логи в консоль (true/false)
